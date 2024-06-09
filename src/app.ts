@@ -5,12 +5,9 @@ import env from "./config/env";
 
 const app: Application = express();
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(env.staticPath));
+app.use(express.static(env.STATIC_PATH));
 
 app.use("/", indexRouter);
 
